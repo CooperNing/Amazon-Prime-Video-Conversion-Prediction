@@ -1,5 +1,7 @@
 # Amazon Prime Video Conversion Prediction
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CooperNing/Amazon-Prime-Video-Conversion-Prediction/blob/main/Amazon_Prime_Video_Conversion_Prediction.ipynb)
+
 A supervised learning project that predicts how many daily conversions (`cvt_per_day`) an Amazon Prime Video title generates from its catalog metadata, so that merchandising and on-site placement decisions can be guided by the attributes that actually drive viewing. The full workflow lives in the notebook in this repository.
 
 ## Data
@@ -17,3 +19,21 @@ The Random Forest clearly outperforms both linear baselines on the held-out test
 ## Tech stack
 
 Python, pandas, NumPy, scikit-learn, seaborn, Matplotlib and Google Colab.
+
+## How to run
+
+The dataset (`TVdata.txt`) is committed to this repository, so the notebook runs end to end without any manual file upload. Open the notebook with the Colab badge above and choose Runtime > Run all; the data is read straight from this repo:
+
+```python
+DATA_URL = "https://raw.githubusercontent.com/CooperNing/Amazon-Prime-Video-Conversion-Prediction/main/TVdata.txt"
+TV = pd.read_table(DATA_URL, header=0, sep=',', lineterminator='\n')
+```
+
+To run it locally instead, clone the repo and install the dependencies:
+
+```bash
+git clone https://github.com/CooperNing/Amazon-Prime-Video-Conversion-Prediction.git
+cd Amazon-Prime-Video-Conversion-Prediction
+pip install pandas numpy scikit-learn seaborn matplotlib jupyter
+jupyter notebook Amazon_Prime_Video_Conversion_Prediction.ipynb
+```
